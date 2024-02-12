@@ -1,0 +1,33 @@
+################### Even/Odd Numbers ###################
+a=5
+if(int(a)%2==0):
+    print(a, 'is a Even Number')
+else:
+    print(a, 'is a Odd Number')
+
+################### Leap year ###################
+year = input('Enter a year : ')
+if(int(year)%4==0 and int(year)%100!=0) or (int(year)%400==0):
+    print(year, 'is a Leap Year')
+else:
+    print(year, 'is not a Leap Year')
+
+################### Fibonancy Logic ###################
+print('Hi')
+a=4
+b=1
+c=1
+while(int(a)>1):
+    n=int(a)*int(c)
+    c=n
+    a=a-1
+print(c)
+################### Factorial Logic ###################
+def factorial(n):
+    res=1
+    for i in range(2,n+1):
+        res=res*i
+    return res
+num=5
+print(factorial(num))
+#########################################
