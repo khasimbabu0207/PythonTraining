@@ -13,6 +13,8 @@ else:
     print(year, 'is not a Leap Year')
 
 ################### Fibonancy Logic ###################
+### The Fibonacci sequence is a series of numbers in which each number (Fibonacci number) is the sum of the two preceding ones, usually starting with 0 and 1. The sequence begins: 0, 1, 1, 2, 3, 5, 8, 13, 21, and so on.
+
 print('Hi')
 a=4
 b=1
@@ -23,6 +25,9 @@ while(int(a)>1):
     a=a-1
 print(c)
 ################### Factorial Logic ###################
+### Factorial is the product of all positive integers up to a given number. It is denoted by the symbol "!" For example, the factorial of 5 (written as 5!) is 
+### 5×4×3×2×1=120.
+
 def factorial(n):
     res=1
     for i in range(2,n+1):
@@ -30,4 +35,43 @@ def factorial(n):
     return res
 num=5
 print(factorial(num))
+
+################### Armstrong number Logic ###################
+### An Armstrong number (or narcissistic number) is a number that is the sum of its own digits each raised to the power of the number of digits. For example, 153 is an Armstrong number because 
+### 1 quebe + 5 quebe + 3 quebe = 153
+
+def is_armstrong_number(number):
+    num_str = str(number)
+    num_digits = len(num_str)
+    armstrong_sum = sum(int(digit) ** num_digits for digit in num_str)
+    return armstrong_sum == number
+
+number_to_check = int(input("Enter a number: "))
+
+if is_armstrong_number(number_to_check):
+    print(f"{number_to_check} is an Armstrong number!")
+else:
+    print(f"{number_to_check} is not an Armstrong number.")
+
+################### Reversed string Logic ###################
+original_string = input("Enter a string: ")
+reverse_string = original_string[::-1]
+print(f"Reversed String: {reverse_string}")
+
+################### Palindrome Logic ###################
+### A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward (ignoring spaces, punctuation, and capitalization). Some examples of palindromic words are "radar," "level," and "civic."
+
+def is_palindrome(input_string):
+    cleaned_string = input_string.lower()
+    
+    # Remove spaces from the cleaned string
+    cleaned_string = ''.join(cleaned_string.split())
+    
+    return cleaned_string == cleaned_string[::-1]
+
+input_word = input("Enter a word or phrase: ")
+if is_palindrome(input_word):
+    print(f"\n'{input_word}' is a palindrome!")
+else:
+    print(f"\n'{input_word}' is not a palindrome.")
 #########################################
