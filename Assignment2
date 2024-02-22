@@ -1,0 +1,213 @@
+############################ String ###############################
+## Reverse a string
+original_string = input("Enter a string: ")
+reverse_string = original_string[::-1]
+print(f"Reversed String: {reverse_string}")
+
+## String methods
+sample_string = "Hello, World! Welcome to Python."
+
+uppercase_string = sample_string.upper()
+lowercase_string = sample_string.lower()
+capitalized_string = sample_string.capitalize()
+titlecased_string = sample_string.title()
+length_of_string = len(sample_string)
+reversed_string = sample_string[::-1]
+substring_index = sample_string.index("Python")
+substring_count = sample_string.count("l")
+replaced_string = sample_string.replace("World", "Universe")
+
+print(f"Original String: {sample_string}")
+print(f"Uppercase: {uppercase_string}")
+print(f"Lowercase: {lowercase_string}")
+print(f"Capitalized: {capitalized_string}")
+print(f"Titlecased: {titlecased_string}")
+print(f"Length of String: {length_of_string}")
+print(f"Reversed String: {reversed_string}")
+print(f"Index of 'Python': {substring_index}")
+print(f"Count of 'l': {substring_count}")
+print(f"String with 'World' replaced: {replaced_string}")
+
+############# Sum of 2 Integers #############
+# Input two integers
+num1 = int(input("Enter the first integer: "))
+num2 = int(input("Enter the second integer: "))
+
+sum_of_integers = num1 + num2
+
+print(f"The sum of {num1} and {num2} is: {sum_of_integers}")
+
+############# Convert KM to Miles #############
+kilometers = float(input("Enter distance in kilometers: "))
+
+# Conversion factor (1 kilometer is approximately 0.621371 miles)
+conversion_factor = 0.621371
+
+miles = kilometers * conversion_factor
+
+print(f"{kilometers} kilometers is equal to {miles} miles.")
+
+############# Convert KM to Miles #############
+import math
+
+radius = float(input("Enter the radius of the circle: "))
+
+# Calculate the area of the circle using the formula: A = π * r^2
+area_of_circle = math.pi * radius**2
+
+print(f"The area of the circle with radius {radius} is: {area_of_circle}")
+
+############# Square of an Integer #############
+number = int(input("Enter an integer: "))
+square = number ** 2
+
+print(f"The square of {number} is: {square}")
+
+############################ LISTS ###############################
+# list math functions
+list1=[2,3,4,5,25,13,5.5]
+print(sum(list1))
+print(max(list1))
+print(min(list1))
+
+# reverse the list elements
+list2=[2,3,4,5,25,13,5.5]
+print(list2[::-1])  
+
+# Sort the list elements Asending/Desending
+list2=[2,3,4,5,25,13,5.5]
+print(list2[::-1])
+print(sorted(list2))
+print(sorted(list2, reverse=True))
+
+# Find 3rd largest element in the list
+list3=[2,3,4,5,1,2,25,5,13,5.5]
+list4 = list(set(list3))
+print(list4[-3])
+
+############################ Tuples ###############################
+# Concatenate 2 tuples
+tuple1=(23,42,22,53,65)
+tuple2=(3,2,6,1,2.5,True)
+print(tuple1)
+print(tuple2)
+tuple3=tuple1+tuple2
+print(tuple3)
+
+# Count occurences of an element in a Tuple
+tuple4=(2,4,3,5,7,2,8,12,54,2,4,999)
+print(tuple4.count(2))
+
+# Tuple Max/Min/Reverse
+tuple4=(2,4,3,5,7,2,8,12,54,2,4,999)
+print(max(tuple4))
+print(min(tuple4))
+print(tuple4[::-1])
+
+# Check an element is present in the Tuple
+tuple5 = (2, 4, 3, 5, 7, 2, 8, 12, 54, 2, 4, 999)
+x = int(input("Enter a number: "))
+if (x in tuple5):
+    print(f"{x} is present in tuple5")
+else:
+    print(f"{x} is not present in tuple5")
+
+############################ Set ###############################
+### A set in Python is an unordered collection of unique elements. It does not allow duplicate elements, and the order of elements is not guaranteed.
+
+# Find an element that exists in a Set
+my_set = {2, 4, 6, 8, 10}
+x = int(input("Enter an element to check: "))
+
+if x in my_set:
+    print(f"{x} exists in the set.")
+else:
+    print(f"{x} does not exist in the set.")
+
+# Remove duplicates from list to set
+list1=[2,4,5,77,55,33,22,2,5,999,4]
+my_set = set(list1)
+print(my_set)
+
+# Check if the Set is a subset of another Set
+## In Python, a set cannot contain another set directly. However, you can use a set to store multiple sets as elements. 
+set1={1,2,3,4}
+set2={9,8,6,2}
+#set3={5,6,7,set2} #
+# set3={set1,set2}
+set3=set1.union(set2)
+print(set3)
+
+
+# Using Set with methods
+set1 = {1, 2, 3, 4, 5}
+set2 = {3, 4, 5, 6, 7}
+
+# Display the original sets
+print("Set 1:", set1)
+print("Set 2:", set2)
+
+# Add an element to set1
+set1.add(6)
+print("After adding 6 to Set 1:", set1)
+
+# Remove an element from set2
+set2.remove(7)
+print("After removing 7 from Set 2:", set2)
+
+# Union of sets
+union_set = set1.union(set2)
+print("Union of Set 1 and Set 2:", union_set)
+
+# Intersection of sets
+intersection_set = set1.intersection(set2)
+print("Intersection of Set 1 and Set 2:", intersection_set)
+
+# Difference of sets
+difference_set = set1.difference(set2)
+print("Difference of Set 1 and Set 2:", difference_set)
+
+# Check if set1 is a subset of set2
+is_subset = set1.issubset(set2)
+print("Is Set 1 a subset of Set 2:", is_subset)
+
+# Check if set1 is a superset of set2
+is_superset = set1.issuperset(set2)
+print("Is Set 1 a superset of Set 2:", is_superset)
+
+############################ Dictionary ###############################
+## A dictionary in Python is an unordered collection of key-value pairs. Each key in a dictionary must be unique, and it maps to a specific value. Dictionaries are often used to store and retrieve data in a structured way.
+# Create a dictionary
+my_dict = {
+    "name": "John",
+    "age": 25,
+    "city": "New York",
+    "is_student": False
+}
+
+# Display the original dictionary
+print("Original Dictionary:", my_dict)
+
+# Access values by key
+print("Name:", my_dict["name"])
+print("Age:", my_dict["age"])
+
+# Update a value
+my_dict["age"] = 26
+print("Updated Age:", my_dict["age"])
+
+# Add a new key-value pair
+my_dict["occupation"] = "Engineer"
+print("Updated Dictionary:", my_dict)
+
+# Check if a key exists
+if "city" in my_dict:
+    print("City is present:", my_dict["city"])
+else:
+    print("City is not present.")
+
+# Remove a key-value pair
+removed_value = my_dict.pop("is_student", None)
+print("Removed Value:", removed_value)
+print("Dictionary after removal:", my_dict)
+
