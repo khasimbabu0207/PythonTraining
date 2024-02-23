@@ -1,0 +1,72 @@
+### Check whether the given number is +ve or not.
+n = int(input("Enter a number : "))
+if n>=0:
+  print(f"{n} is a Positive number")
+else:
+  print(f"{n} is not a Positive number")
+##################################################################
+### Determine based on the grade if the student is pass or fail.
+student={"name":"Ram","number":10,"age":15,"marks":75}
+
+my_name = input("Enter the name of the student : ")
+student["name"]=my_name
+my_no = int(input(f"Enter the number of {my_name} : "))
+student["number"]=my_no
+my_age = int(input(f"Enter the age of {my_name} : "))
+student["age"]=my_age
+my_marks = int(input(f"Enter the marks for {my_name} : "))
+student["marks"]=my_marks
+
+if student["marks"]>=60:
+  student["grade"]="First Class"
+elif student["marks"]<60 and student["marks"]>35:
+  student["grade"]="Second Class"
+elif student["marks"]==35:
+  student["grade"]="Third Class"
+else:
+  student["grade"]="Fail"
+
+print(student) 
+##################################################################
+### Determine given number is Even/Odd
+n = int(input("Enter a number : "))
+if n%2==0:
+  print(f"{n} is a Even number")
+else:
+  print(f"{n} is a Odd number")
+##################################################################
+### Use Nested if to build a ticketing tool for Metro & discounts for various categories of people.
+passenger = input("Enter name of the Passenger : ")
+passenger_gender = input(f"Enter the gender of {passenger} : ")
+passenger_disabilities = input(f"Enter the {passenger} disability details : Type YES or NO --> ")
+Ticket_price = int(input(f"Enter the {passenger} Ticket price : "))
+
+if passenger_gender.upper()=='MALE':
+  if passenger_disabilities.upper()=='YES':
+    passenger_discount=Ticket_price * .1
+    Final_TicketPrice=Ticket_price - passenger_discount
+    print(f"Final Ticket price of {passenger} is : {Final_TicketPrice}")
+  else:
+    print(f"Final Ticket price of {passenger} is : {Ticket_price}")
+elif passenger_gender.upper()=='FEMALE':
+  if passenger_disabilities.upper()=='YES':
+    passenger_discount=Ticket_price * .15
+    Final_TicketPrice=Ticket_price - passenger_discount
+    print(f"Final Ticket price of {passenger} is : {Final_TicketPrice}")
+  else:
+    passenger_discount=Ticket_price * .05
+    Final_TicketPrice=Ticket_price - passenger_discount
+    print(f"Final Ticket price of {passenger} is : {Final_TicketPrice}")
+else:
+  print(f"No Ticket for Transgender passenger")
+
+##################################################################
+
+
+
+
+
+
+
+
+
