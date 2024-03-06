@@ -1,0 +1,147 @@
+####################################### Bank Management System ############################################
+class Account:
+    def __init__(self, balance=0):
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited ${amount}. New balance: ${self.balance}")
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Withdrew ${amount}. New balance: ${self.balance}")
+        else:
+            print("Insufficient funds. Unable to withdraw.")
+
+    def transfer(self, recipient_account, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            recipient_account.balance += amount
+            print(f"Transferred ${amount}. Your new balance: ${self.balance}")
+
+    def view_account_info(self):
+        print(f"Account Balance: ${self.balance}")
+
+
+class User:
+    def __init__(self, name, password):
+        self.name = name
+        self.password = password
+        self.logged_in = False
+
+    def login(self, entered_password):
+        if entered_password == self.password:
+            self.logged_in = True
+            print(f"{self.__class__.__name__} {self.name} logged in.")
+        else:
+            print("Login failed. Incorrect password.")
+
+    def logout(self):
+        self.logged_in = False
+        print(f"{self.__class__.__name__} {self.name} logged out.")
+
+
+class Customer(User):
+    def __init__(self, name, password):
+        super().__init__(name, password)
+        self.account = Account()
+
+    def logout(self):
+        super().logout()
+        self.account = None
+
+
+class Teller(User):
+    def view_customer_info(self, customer):
+        if self.logged_in:
+            print(f"\nCustomer Name: {customer.name}")
+#            customer.account.view_account_info()
+        else:
+            print("Access denied. Teller not logged in.")
+
+    def manage_account(self, customer, action):
+        if self.logged_in:
+            if action == "open":
+                customer.account = Account()
+                print("Account opened.")
+            elif action == "close":
+                customer.account = None
+                print("Account closed.")
+            elif action == "block":
+                customer.account = None
+                print("Account blocked.")
+            elif action == "unblock":
+                customer.account = Account()
+                print("Account unblocked.")
+        else:
+            print("Access denied. Teller not logged in.")
+
+
+class Admin(User):
+    def manage_workers(self, action):
+        if self.logged_in:
+            if action == "add":
+                print("Worker added.")
+            elif action == "remove":
+                print("Worker removed.")
+        else:
+            print("Access denied. Admin not logged in.")
+
+    def manage_branch(self, action):
+        if self.logged_in:
+            if action == "update":
+                print("Branch information updated.")
+        else:
+            print("Access denied. Admin not logged in.")
+
+
+# Predefined details
+customer_details = {"Alice": "password123", "Bob": "password456"}
+teller_details = {"Teller1": "tellerpass", "Teller2": "tellertwo"}
+admin_details = {"Admin1": "adminpass", "Admin2": "adminpass2"}
+
+# Create instances
+customers = [Customer(name, password) for name, password in customer_details.items()]
+tellers = [Teller(name, password) for name, password in teller_details.items()]
+admins = [Admin(name, password) for name, password in admin_details.items()]
+
+# Example usage:
+
+# Customer
+customer = customers[0]
+customer.login("password123")
+customer.account.deposit(1000)
+customer.account.withdraw(500)
+customer.account.view_account_info()
+customer.logout()
+
+# Teller
+teller = tellers[0]
+teller.login("tellerpass")
+teller.view_customer_info(customer)
+teller.manage_account(customer, "close")
+teller.logout()
+
+# Admin
+admin = admins[0]
+admin.login("adminpass")
+admin.manage_workers("add")
+admin.manage_branch("update")
+admin.logout()
+
+#********************Output*************
+''' Customer Alice logged in.
+Deposited $1000. New balance: $1000
+Withdrew $500. New balance: $500
+Account Balance: $500
+Customer Alice logged out.
+Teller Teller1 logged in.
+
+Customer Name: Alice
+Account closed.
+Teller Teller1 logged out.
+Admin Admin1 logged in.
+Worker added.
+Branch information updated.
+Admin Admin1 logged out.'''
