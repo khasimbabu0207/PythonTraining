@@ -56,7 +56,7 @@ class Teller(User):
     def view_customer_info(self, customer):
         if self.logged_in:
             print(f"\nCustomer Name: {customer.name}")
-#            customer.account.view_account_info()
+    #        customer.account.view_account_info()
         else:
             print("Access denied. Teller not logged in.")
 
@@ -97,9 +97,9 @@ class Admin(User):
 
 
 # Predefined details
-customer_details = {"Alice": "password123", "Bob": "password456"}
-teller_details = {"Teller1": "tellerpass", "Teller2": "tellertwo"}
-admin_details = {"Admin1": "adminpass", "Admin2": "adminpass2"}
+customer_details = {"Ramu": "pass111", "Srinu": "pass222"}
+teller_details = {"Tom": "pass333", "John": "pass444"}
+admin_details = {"Akbar": "pass555", "Azhar": "pass666"}
 
 # Create instances
 customers = [Customer(name, password) for name, password in customer_details.items()]
@@ -110,7 +110,7 @@ admins = [Admin(name, password) for name, password in admin_details.items()]
 
 # Customer
 customer = customers[0]
-customer.login("password123")
+customer.login("pass111")
 customer.account.deposit(1000)
 customer.account.withdraw(500)
 customer.account.view_account_info()
@@ -118,30 +118,35 @@ customer.logout()
 
 # Teller
 teller = tellers[0]
-teller.login("tellerpass")
+teller.login("pass333")
 teller.view_customer_info(customer)
 teller.manage_account(customer, "close")
 teller.logout()
 
 # Admin
 admin = admins[0]
-admin.login("adminpass")
+admin.login("pass555")
 admin.manage_workers("add")
 admin.manage_branch("update")
 admin.logout()
 
+
 #********************Output*************
-''' Customer Alice logged in.
+''' C:\pycharmprojects\pythonproject\venv\Scripts\python.exe C:\pycharmprojects\pythonproject\BankManagementSystem.py 
+Customer Ramu logged in.
 Deposited $1000. New balance: $1000
 Withdrew $500. New balance: $500
 Account Balance: $500
-Customer Alice logged out.
-Teller Teller1 logged in.
+Customer Ramu logged out.
+Teller Tom logged in.
 
-Customer Name: Alice
+Customer Name: Ramu
 Account closed.
-Teller Teller1 logged out.
-Admin Admin1 logged in.
+Teller Tom logged out.
+Admin Akbar logged in.
 Worker added.
 Branch information updated.
-Admin Admin1 logged out.'''
+Admin Akbar logged out.
+
+Process finished with exit code 0 '''
+
