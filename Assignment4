@@ -66,3 +66,13 @@ my_bank.withdraw(2, 200)
 # Display account balances
 print("Account 1 Balance:", my_bank.get_account_balance(1))
 print("Account 2 Balance:", my_bank.get_account_balance(2))
+
+#*********************Output**********************
+''' Account created successfully. Account Number: 1
+Account created successfully. Account Number: 2
+Deposit successful. New balance: 1500
+Withdrawal successful. New balance: 300
+Account 1 Balance: 1500
+Account 2 Balance: 300 '''
+
+########################################### ##########################################
